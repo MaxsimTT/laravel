@@ -30,7 +30,22 @@ Route::any('/product/{id?}/{comment?}', function(Request $request, $id = 1, $com
     return $request->path();
 })->whereNumber('id')->where(['comment' => '[a-z]+']);
 
-Route::prefix('admin')->group(function() {
+/*Route::prefix('admin')->group(function() {
+    Route::match(['get', 'post'], '/', function() {
+        return 'admin.index';
+    });
+    Route::match(['get', 'post'], '/auth', function() {
+        return 'admin.auth';
+    });
+    Route::match(['get', 'post'], '/products', function() {
+        return 'admin.products';
+    });
+    Route::match(['get', 'post'], '/clients', function() {
+        return 'admin.clients';
+    });
+});*/
+
+Route::group(['prefix' => 'admin', 'middleware' => 'throttle:my_limit_query'], function() {
     Route::match(['get', 'post'], '/', function() {
         return 'admin.index';
     });
@@ -44,3 +59,7 @@ Route::prefix('admin')->group(function() {
         return 'admin.clients';
     });
 });
+
+Route::get('/feedback', function () {
+    return 'feedback';
+})->middleware('throttle:my_limit_query');
