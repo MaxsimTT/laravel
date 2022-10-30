@@ -62,4 +62,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'throttle:my_limit_query'], f
 
 Route::get('/feedback', function () {
     return 'feedback';
-})->middleware('throttle:my_limit_query');
+})->middleware('checklocalhost');
