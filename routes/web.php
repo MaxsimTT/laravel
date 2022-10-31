@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +30,9 @@ Route::post('/products', function(Request $request) {
     return $request->path();
 });
 
-Route::any('/product/{id?}/{comment?}', function(Request $request, $id = 1, $comment = '') {
+/*Route::any('/product/{id?}/{comment?}', function(Request $request, $id = 1, $comment = '') {
     return $request->path();
-})->whereNumber('id')->where(['comment' => '[a-z]+']);
+})->whereNumber('id')->where(['comment' => '[a-z]+']);*/
 
 Route::prefix('admin')->group(function() {
     Route::match(['get', 'post'], '/', function() {
@@ -76,3 +78,7 @@ Route::get('/secretpage', function (Request $request) {
 })->middleware('checkkey');
 
 Route::get('/mypage', [TestController::class, 'mypage']);
+
+Route::get('/product', [ProductController::class, 'view']);
+
+Route::get('/review', [ReviewController::class, 'getReview']);
