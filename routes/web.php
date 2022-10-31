@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,3 +64,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'throttle:my_limit_query'], f
 Route::get('/feedback', function () {
     return 'feedback';
 })->middleware('checklocalhost');
+
+Route::get('/home', [MainController::class, 'home']);
+Route::get('/map', [MainController::class, 'map']);
+Route::get('/massage/{id?}', [MainController::class, 'massage']);
+Route::get('/catalog', MainController::class);
