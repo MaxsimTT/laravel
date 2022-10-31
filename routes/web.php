@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\TestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +74,5 @@ Route::get('/catalog', MainController::class);
 Route::get('/secretpage', function (Request $request) {
     return $request->path();
 })->middleware('checkkey');
+
+Route::get('/mypage', [TestController::class, 'mypage']);
