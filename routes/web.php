@@ -6,6 +6,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\TestBladeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,3 +83,5 @@ Route::get('/mypage', [TestController::class, 'mypage']);
 Route::get('/product', [ProductController::class, 'view']);
 
 Route::get('/review', [ReviewController::class, 'getReview']);
+
+Route::get('/testblade', [TestBladeController::class, 'testBlade']);
