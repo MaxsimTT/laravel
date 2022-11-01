@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
 use App\View\Composers\ExampleComposer;
+use App\View\Composers\MyPageComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,5 +35,6 @@ class AppServiceProvider extends ServiceProvider
             ['sub.review', 'product'],
             ExampleComposer::class
         );
+        View::composer('mypage', MyPageComposer::class);
     }
 }
