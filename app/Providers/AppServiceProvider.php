@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use App\View\Composers\ExampleComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,5 +26,13 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::share('cart', 235425);
+        /*View::composer('sub.review', function($view) {
+            $view->with('data_of_composer', 'Привет из компоновщика');
+        });*/
+        // View::composer('sub.review', ExampleComposer::class);
+        View::composer(
+            ['sub.review', 'product'],
+            ExampleComposer::class
+        );
     }
 }

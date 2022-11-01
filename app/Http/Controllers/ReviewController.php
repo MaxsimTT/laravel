@@ -20,7 +20,7 @@ class ReviewController extends Controller
 
     public function getReview() {
         return view('sub.review', ['name' => 'Вася', 'review' => 'Текст отзыва']);
-        // // return View::make('sub.review', ['name' => 'Вася', 'review' => 'Текст отзыва для фасада']);
+        // return View::make('sub.review', ['name' => 'Вася', 'review' => 'Текст отзыва для фасада']);
         // return View::exists('sub.review');
     }
 }
