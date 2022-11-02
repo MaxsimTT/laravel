@@ -36,6 +36,6 @@ class TestController extends Controller
             ],
         ];
 
-        return view('mypage', ['clients' => $clients]);
+        return view('mypageblade', ['clients' => $clients]);
     }
 }
