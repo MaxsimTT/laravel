@@ -16,5 +16,6 @@
             @yield('content')
         </div>
         <div>Подвал</div>
+        <p>@importantmessage(Даня)</p>
     </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 use App\View\Composers\ExampleComposer;
 use App\View\Composers\MyPageComposer;
 
@@ -39,5 +40,9 @@ class AppServiceProvider extends ServiceProvider
             ['mypage', 'cart'],
             MyPageComposer::class
         );
+
+        Blade::directive('importantmessage', function($param) {
+            return "<?php echo '<b>$param</b>' ?>";
+        });
     }
 }
