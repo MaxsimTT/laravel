@@ -20,4 +20,8 @@ class TestBladeController extends Controller
     public function testBlade(Request $request) {
         return view('testblade', ['name' => 'Danya', 'lastname' => '<b>Egorov</b>']);
     }
+
+    public function extendedTemplate() {
+        return view('childs.view');
+    }
 }
