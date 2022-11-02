@@ -35,6 +35,9 @@ class AppServiceProvider extends ServiceProvider
             ['sub.review', 'product'],
             ExampleComposer::class
         );
-        View::composer('mypage', MyPageComposer::class);
+        View::composer(
+            ['mypage', 'cart'],
+            MyPageComposer::class
+        );
     }
 }
