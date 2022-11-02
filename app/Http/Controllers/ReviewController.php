@@ -23,4 +23,8 @@ class ReviewController extends Controller
         // return View::make('sub.review', ['name' => 'Вася', 'review' => 'Текст отзыва для фасада']);
         // return View::exists('sub.review');
     }
+
+    public function testComponents() {
+        return view('testcomponents', ['a' => 15]);
+    }
 }
