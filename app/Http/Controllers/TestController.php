@@ -18,24 +18,16 @@ class TestController extends Controller
     }
 
     public function mypage(Request $request) {
-        $clients = [
-            (object) [
-                'id'    => 1,
-                'name'  => 'Maksim',
-                'email' => 'qwerty@test.com',       
-            ],
-            (object) [
-                'id'    => 2,
-                'name'  => 'Danila',
-                'email' => 'www@test.com',       
-            ],
-            (object) [
-                'id'    => 3,
-                'name'  => 'Zafar',
-                'email' => 'abc@test.com',       
-            ],
-        ];
 
-        return view('mypageblade', ['clients' => $clients]);
+        return view('mypageblade');
+    }
+
+    public function clients(Request $request) {
+        return view('clients');
+    }
+
+    public function contacts(Request $request) {
+        $path = $request->path();
+        return view('contacts', ['path' => $path]);
     }
 }

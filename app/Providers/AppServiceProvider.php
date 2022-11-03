@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Blade;
 use App\View\Composers\ExampleComposer;
 use App\View\Composers\MyPageComposer;
+use App\View\Composers\ClientsComposer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -44,5 +45,20 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('importantmessage', function($param) {
             return "<?php echo '<b>$param</b>' ?>";
         });
+
+        Blade::directive('mycurrency', function($currency) {
+            if ($currency == 'rub') {
+                return "<?php echo '<b>500 руб.</b>' ?>";
+            } if ($currency == 'usd') {
+                return "<?php echo '<b>\$500</b>' ?>";
+            } else {
+                return;
+            }
+        });
+
+        View::composer(
+            ['mypageblade', 'clients', 'contacts'],
+            ClientsComposer::class
+        );
     }
 }

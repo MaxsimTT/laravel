@@ -9,7 +9,7 @@ class MyPageComposer
 	public function compose(View $view) {
 		$cart = (object) [
 			'amount_products' => 3,
-			'total_price'     => 12443125,
+			'total_price'     => 12443124,
 		];
 		$view->with('cart', $cart);
 	}

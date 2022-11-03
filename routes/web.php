@@ -79,9 +79,16 @@ Route::get('/secretpage', function (Request $request) {
 })->middleware('checkkey');
 
 Route::get('/mypage', [TestController::class, 'mypage']);
+// Route::get('/mypageblade', [TestController::class, 'mypage']);
+// Route::get('/mypageblade/clients', [TestController::class, 'clients']);
 Route::get('/product', [ProductController::class, 'view']);
 Route::get('/extendedtemplate', [TestBladeController::class, 'extendedTemplate']);
 Route::get('/review', [ReviewController::class, 'getReview']);
 Route::get('/testcomponents', [ReviewController::class, 'testComponents']);
 Route::get('/testblade', [TestBladeController::class, 'testBlade']);
 
+Route::prefix('mypageblade')->group(function() {
+    Route::get('/', [TestController::class, 'mypage']);
+    Route::get('/clients', [TestController::class, 'clients']);
+    Route::get('/contacts', [TestController::class, 'contacts']);
+});

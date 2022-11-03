@@ -6,6 +6,13 @@
         <title>Test Blade</title>      
     </head>
     <body>
+
+        @extends('cart')
+
+        @section('left')
+            <div>Меню testblade</div>
+        @endsection
+
         <p>Name: {{ $name }}</p>
         <p>Lastname: {!! $lastname !!}</p>
         <p>@{{ name }}</p>

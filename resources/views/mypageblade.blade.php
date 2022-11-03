@@ -9,7 +9,11 @@
     </head>
     <body>
 
-        @include('cart')
+        @extends('cart')
+
+        @section('left')
+            <div>Меню mypagesblade</div>
+        @endsection
 
         @isset($clients)
             <table>
