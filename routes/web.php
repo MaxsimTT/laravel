@@ -90,7 +90,15 @@ Route::get('/testblade', [TestBladeController::class, 'testBlade']);
 Route::prefix('mypageblade')->group(function() {
     Route::get('/', [TestController::class, 'mypage']);
     Route::get('/clients', [TestController::class, 'clients']);
+    Route::get('/clientslayout', [TestController::class, 'clientsLayout']);
     Route::get('/contacts', [TestController::class, 'contacts']);
+    Route::get('/contactslayout', [TestController::class, 'contactsLayout']);
 });
 
 Route::get('/testlayout', [TestController::class, 'testLayout']);
+Route::get('/testlayoutcomp', [TestController::class, 'testlayoutcomp']);
+
+Route::prefix('mylayout')->group(function() {
+    Route::get('/clients', [TestController::class, 'clientsLayout']);
+    Route::get('/contacts', [TestController::class, 'contactsLayout']);
+});

@@ -26,12 +26,25 @@ class TestController extends Controller
         return view('clients');
     }
 
+    public function clientsLayout(Request $request) {
+        return view('childs.clientslayout');
+    }
+
     public function contacts(Request $request) {
         $path = $request->path();
         return view('contacts', ['path' => $path]);
     }
 
+    public function contactsLayout(Request $request) {
+        $path = $request->path();
+        return view('childs.contactslayout', ['path' => $path]);
+    }
+
     public function testLayout(Request $request) {
         return view('childs.layout');
+    }
+
+    public function testlayoutcomp(Request $request) {
+        return view('testlayoutcomp');
     }
 }

@@ -38,7 +38,7 @@ class AppServiceProvider extends ServiceProvider
             ExampleComposer::class
         );
         View::composer(
-            ['mypage', 'cart'],
+            ['mypage', 'cart', 'childs.clientslayout'],
             MyPageComposer::class
         );
 
@@ -57,7 +57,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         View::composer(
-            ['mypageblade', 'clients', 'contacts'],
+            ['mypageblade', 'clients', 'contacts', 'childs.clientslayout'],
             ClientsComposer::class
         );
     }
