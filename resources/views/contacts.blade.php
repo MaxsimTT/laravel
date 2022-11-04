@@ -10,5 +10,12 @@
     <body>
         <p>Мы находимся по следующему адресу {{ $path }}</p>
         <x-my-feedback-form my-name="Max" email="test@qwe.com" />
+        <x-error-message>
+            <x-slot name="header" class="max-class">
+                Контакты
+                <p>Test</p>
+            </x-slot>
+            <i>Test slot</i>
+        </x-error-message>
     </body>
 </html>

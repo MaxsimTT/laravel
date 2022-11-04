@@ -92,3 +92,5 @@ Route::prefix('mypageblade')->group(function() {
     Route::get('/clients', [TestController::class, 'clients']);
     Route::get('/contacts', [TestController::class, 'contacts']);
 });
+
+Route::get('/testlayout', [TestController::class, 'testLayout']);

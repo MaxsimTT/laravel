@@ -30,4 +30,8 @@ class TestController extends Controller
         $path = $request->path();
         return view('contacts', ['path' => $path]);
     }
+
+    public function testLayout(Request $request) {
+        return view('childs.layout');
+    }
 }
