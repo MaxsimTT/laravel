@@ -104,3 +104,4 @@ Route::prefix('mylayout')->group(function() {
 });
 
 Route::get('/request', [TestController::class, 'requestMethod']);
+Route::get('/response', TestController::class);

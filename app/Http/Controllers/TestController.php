@@ -14,7 +14,11 @@ class TestController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        // return response('Тело ответа', 200);
+        // return response('Тело ответа с заголовком', 200)->header('a', 1)->header('Content-type', 'text/plain');
+        // return response()->json(['a' => 5, 'b' => [6, 2, 3], 'c' => true]);
+        // return response()->download('index.php');
+        return response()->file('robots.txt');
     }
 
     public function mypage(Request $request) {
