@@ -47,4 +47,39 @@ class TestController extends Controller
     public function testlayoutcomp(Request $request) {
         return view('testlayoutcomp');
     }
+
+    public function requestMethod(Request $request) {
+        echo $request->header('Host') . '<br />';
+        echo $request->method() . '<br />';
+        echo $request->isMethod('GET') . '<br />';
+        echo $request->ip() . '<br />';
+        echo $request->path() . '<br />';
+        echo $request->url() . '<br />';
+        echo $request->fullUrl() . '<br />';
+        echo $request->fullUrlWithQuery(['c' => 3, 'd' => 4]) . '<br />';
+
+        echo '<pre>';
+        print_r($request->input());
+        echo '</pre>';
+        
+        echo '<pre>';
+        print_r($request->query());
+        echo '</pre>';
+
+        //$a = $request->input('a', 0);
+        $a = $request->a ?? 15;
+        echo $a . '<br />';
+
+        if ($request->has('a')) {
+            echo 'yes' . '<br />';
+        }
+
+        if ($request->has('q')) echo 'Параметр присутствует <br />';
+        else echo 'Парамет отсутствует <br />';
+
+        if ($request->filled('q')) echo 'Параметр присутствует <br />';
+        else echo 'Парамет отсутствует <br />';
+
+        return 'request';
+    }
 }

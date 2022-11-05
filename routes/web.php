@@ -102,3 +102,5 @@ Route::prefix('mylayout')->group(function() {
     Route::get('/clients', [TestController::class, 'clientsLayout']);
     Route::get('/contacts', [TestController::class, 'contactsLayout']);
 });
+
+Route::get('/request', [TestController::class, 'requestMethod']);
