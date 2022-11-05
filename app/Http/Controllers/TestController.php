@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 
 class TestController extends Controller
 {
@@ -85,5 +86,26 @@ class TestController extends Controller
         else echo 'Парамет отсутствует <br />';
 
         return 'request';
+    }
+
+    public function testUrl() {
+
+        echo url()->current() . '<br />';
+        echo URL::current() . '<br />';
+        echo url()->full() . '<br />';
+        echo url()->previous() . '<br />';
+        echo route('mypage', ['id' => 15]) . '<br />';
+        echo url()->signedRoute('activate', ['id' => 1]) . '<br />';
+        echo url()->temporarySignedRoute('activate', now()->addSeconds(10), ['id' => 1]) . '<br />';
+
+        return 1;
+    }
+
+    public function activate(Request $request) {
+        /*if ($request->hasValidSignature()) {
+             return 'Успешная активация ' . $request->id;
+        }
+        abort(401);*/
+        return 'Успешная активация ' . $request->id;
     }
 }

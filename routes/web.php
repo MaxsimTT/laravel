@@ -78,7 +78,7 @@ Route::get('/secretpage', function (Request $request) {
     return $request->path();
 })->middleware('checkkey');
 
-Route::get('/mypage', [TestController::class, 'mypage']);
+Route::get('/mypage', [TestController::class, 'mypage'])->name('mypage');
 // Route::get('/mypageblade', [TestController::class, 'mypage']);
 // Route::get('/mypageblade/clients', [TestController::class, 'clients']);
 Route::get('/product', [ProductController::class, 'view']);
@@ -109,4 +109,5 @@ Route::get('/response', TestController::class);
 Route::get('/requesttest', [ProductController::class, 'requestTest']);
 Route::get('/responsetest', [ProductController::class, 'respotseTest']);
 Route::get('/download', [ProductController::class, 'download']);
-
+Route::get('/testurl', [TestController::class, 'testUrl']);
+Route::get('/activate', [TestController::class, 'activate'])->middleware('signed')->name('activate');
