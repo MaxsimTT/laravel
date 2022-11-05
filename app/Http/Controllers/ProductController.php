@@ -23,4 +23,19 @@ class ProductController extends Controller
             ->with('name', 'car')
             ->with('prace', '100000');
     }
+
+    public function requestTest(Request $request) {
+        $ip = $request->ip();
+        $params = $request->fullUrl();
+        return view('requesttest', ['ip' => $ip, 'params' => $params]);
+    }
+
+    public function respotseTest() {
+        $path = 'http://my-laravel.com/download';
+        return view('responsetest', ['path' => $path]);
+    }
+
+    public function download() {
+        return response()->download('../storage/app/test.png');
+    }
 }
