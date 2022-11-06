@@ -112,3 +112,4 @@ Route::get('/download', [ProductController::class, 'download']);
 Route::get('/testurl', [TestController::class, 'testUrl']);
 Route::get('/activate', [TestController::class, 'activate'])->middleware('signed')->name('activate');
 Route::get('/counter', [TestController::class, 'counter'])->name('counter');
+Route::get('/testexception', [TestController::class, 'testException'])->name('testException');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use App\Exceptions\MyException;
 
 class TestController extends Controller
 {
@@ -153,5 +154,9 @@ class TestController extends Controller
         session()->increment('counter');
 
         return session()->get('counter');
+    }
+
+    public function testException(Request $request) {
+        throw new MyException();
     }
 }
