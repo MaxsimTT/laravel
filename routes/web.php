@@ -108,8 +108,10 @@ Route::get('/response', TestController::class);
 
 Route::get('/requesttest', [ProductController::class, 'requestTest']);
 Route::get('/responsetest', [ProductController::class, 'respotseTest']);
-Route::get('/download', [ProductController::class, 'download']);
+Route::get('/download', [ProductController::class, 'download'])->middleware('signed')->name('download');
 Route::get('/testurl', [TestController::class, 'testUrl']);
 Route::get('/activate', [TestController::class, 'activate'])->middleware('signed')->name('activate');
 Route::get('/counter', [TestController::class, 'counter'])->name('counter');
 Route::get('/testexception', [TestController::class, 'testException'])->name('testException');
+
+Route::get('/temporarylink', [TestController::class, 'temporaryLink'])->name('temporaryLinkDownloadFile');

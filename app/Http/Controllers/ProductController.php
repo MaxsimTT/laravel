@@ -35,7 +35,10 @@ class ProductController extends Controller
         return view('responsetest', ['path' => $path]);
     }
 
-    public function download() {
-        return response()->download('../storage/app/test.png');
+    public function download(Request $request) {
+        // if ($request->hasValidSignature()) {
+             return response()->download('../storage/app/test.png');
+        // }
+        // abort(401);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use App\Exceptions\MyException;
+use App\Exceptions\MyExceptionTwo;
 
 class TestController extends Controller
 {
@@ -33,7 +34,17 @@ class TestController extends Controller
     }
 
     public function clientsLayout(Request $request) {
-        return view('childs.clientslayout');
+
+        if ($request->has('func')) {
+            if($request->func == 'add') {
+                throw new MyExceptionTwo();
+            }
+        }
+
+        if (session()->has('cart')) {
+            $cart = session()->get('cart');
+        }
+        return view('childs.clientslayout', ['cartsession' => $cart]);
     }
 
     public function contacts(Request $request) {
@@ -158,5 +169,9 @@ class TestController extends Controller
 
     public function testException(Request $request) {
         throw new MyException();
+    }
+
+    public function temporarylink() {
+        return url()->temporarySignedRoute('download', now()->addSeconds(10)) . '<br />';
     }
 }

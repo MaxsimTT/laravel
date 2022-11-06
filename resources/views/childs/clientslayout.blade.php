@@ -2,7 +2,7 @@
 	<x-slot name="title">Clients layout</x-slot>
 	<x-slot name="cart">
 		@isset($cart)
-			<p>В вашей корзине {{ $cart->amount_products }} тов. на общую сумму {{ $cart->total_price }} @mycurrency(rub)</p>
+			<p>В вашей корзине {{ $cartsession->amount_products }} тов. на общую сумму {{ $cartsession->total_price }} @mycurrency(rub)</p>
 		@endisset
 	</x-slot>
 	<x-slot name="left">General menu</x-slot>
