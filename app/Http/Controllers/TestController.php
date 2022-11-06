@@ -108,4 +108,50 @@ class TestController extends Controller
         abort(401);*/
         return 'Успешная активация ' . $request->id;
     }
+
+    public function counter(Request $request) {
+        // session()->put('c', 10);
+        // session(['d' => [1, 2, 3, 4, 5, 6,]]);
+        // session()->push('d', 88);
+        // echo '<pre>';
+        // print_r($request->session()->all());
+        // echo '<pre>';
+
+        // echo '-----------<br />';
+
+        // echo '<pre>';
+        // print_r(session()->all());
+        // echo '<pre>';
+
+        // echo session()->exists('_previous') . '<br />';
+        // echo '-----------<br />';
+        // echo session()->has('_previous') . '<br />';
+        // echo '-----------<br />';
+        // print_r(session()->get('d')) . '<br />';
+
+        // echo session()->pull('d');
+        // echo '-----------<br />';
+        // echo '<pre>';
+        // print_r($request->session()->all());
+        // echo '<pre>';
+
+        // session()->forget('x');
+
+        // if (session()->exists('counter')) {
+        //     $counter = session()->pull('counter');
+        //     $counter++;
+        //     session()->put('counter', $counter);
+        // } else {
+        //     session()->put('counter', 1);
+        // }
+        // echo session()->get('counter') . '<br />';
+
+        /*$counter = session()->get('counter', 0);
+        $counter++;
+        session()->put('counter', $counter);*/
+        // session()->forget('counter');
+        session()->increment('counter');
+
+        return session()->get('counter');
+    }
 }
