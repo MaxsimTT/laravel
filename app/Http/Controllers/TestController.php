@@ -31,6 +31,16 @@ class TestController extends Controller
     }
 
     public function clients(Request $request) {
+
+        $user_ip = $request->ip();
+        $date = date(DATE_RFC822);
+        $url = $request->fullUrl();
+
+        Log::channel('daily')->info(
+            'information message',
+            ['user_ip' => $user_ip, 'date' => $date, 'url' => $url,]
+        );
+
         return view('clients');
     }
 
