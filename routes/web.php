@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\TestController;
@@ -115,3 +116,4 @@ Route::get('/counter', [TestController::class, 'counter'])->name('counter');
 Route::get('/testexception', [TestController::class, 'testException'])->name('testException');
 
 Route::get('/temporarylink', [TestController::class, 'temporaryLink'])->name('temporaryLinkDownloadFile');
+Route::get('/my_channel_logs', [TestController::class, 'myChannelLog'])->name('test_my_channel_log');

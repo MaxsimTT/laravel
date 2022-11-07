@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Log;
 use App\Exceptions\MyException;
 use App\Exceptions\MyExceptionTwo;
 
@@ -173,5 +174,13 @@ class TestController extends Controller
 
     public function temporarylink() {
         return url()->temporarySignedRoute('download', now()->addSeconds(10)) . '<br />';
+    }
+
+    public function myChannelLog() {
+        Log::debug('debug-level message');
+
+        Log::channel('daily')->info('information message');
+
+        return route('test_my_channel_log');
     }
 }

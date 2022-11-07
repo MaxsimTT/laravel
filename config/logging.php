@@ -50,6 +50,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
+            'name' => 'Max',
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
@@ -112,6 +113,12 @@ return [
 
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
+        ],
+
+        'my_channel' => [
+            'driver' => 'single',
+            'path'   => storage_path('logs/my_channel.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
         ],
     ],
 
