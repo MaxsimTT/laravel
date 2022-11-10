@@ -8,6 +8,7 @@ use App\Http\Controllers\TestController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TestBladeController;
+use App\Http\Controllers\TestGroupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,3 +118,9 @@ Route::get('/testexception', [TestController::class, 'testException'])->name('te
 
 Route::get('/temporarylink', [TestController::class, 'temporaryLink'])->name('temporaryLinkDownloadFile');
 Route::get('/my_channel_logs', [TestController::class, 'myChannelLog'])->name('test_my_channel_log');
+
+Route::controller(TestGroupController::class)->group(function () {
+    Route::get('/testgroupcontrollerone', 'viewone');
+    Route::get('/testgroupcontrollertwo', 'viewtwo');
+    Route::get('/testgroupcontrollerthree', 'viewthree');
+});
