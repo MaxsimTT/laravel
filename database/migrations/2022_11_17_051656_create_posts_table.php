@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
                 $table->string('name', 100)->collation('utf8_general_ci');
                 $table->longText('description')->collation('utf8_general_ci');
                 $table->string('author', 100)->collation('utf8_general_ci');
-                $table->timestamp('created_date');
+                $table->timestamps();
             });
         }
     }
