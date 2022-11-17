@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\TestBladeController;
 use App\Http\Controllers\TestGroupController;
+use App\Http\Controllers\PostController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -124,3 +126,5 @@ Route::controller(TestGroupController::class)->group(function () {
     Route::get('/testgroupcontrollertwo', 'viewtwo');
     Route::get('/testgroupcontrollerthree', 'viewthree');
 });
+
+Route::get('/posts', [PostController::class, 'getPosts'])->name('posts');
