@@ -16,11 +16,11 @@ class CreatePostsTable extends Migration
         if (!Schema::hasTable('posts')) {
             Schema::create('posts', function (Blueprint $table) {
                 $table->id();
-                $table->integer('category_post_id');
-                $table->string('name', 100);
-                $table->longText('description');
-                $table->string('author', 100);
-                $table->timestamp('create_date');
+                $table->integer('category_post_id')->unsigned()->default(0);
+                $table->string('name', 100)->collation('utf8_general_ci');
+                $table->longText('description')->collation('utf8_general_ci');
+                $table->string('author', 100)->collation('utf8_general_ci');
+                $table->timestamp('created_date');
             });
         }
     }
