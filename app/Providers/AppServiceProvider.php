@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Blade;
 use App\View\Composers\ExampleComposer;
 use App\View\Composers\MyPageComposer;
 use App\View\Composers\ClientsComposer;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +29,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
+        DB::listen(function ($query) {
+            dump($query->sql);
+            dump($query->bindings);
+        });
+
         View::share('cart', 235425);
         /*View::composer('sub.review', function($view) {
             $view->with('data_of_composer', 'Привет из компоновщика');
