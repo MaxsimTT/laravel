@@ -75,13 +75,15 @@ class PostController extends Controller
 
         // dump(DB::table('posts')->take(1)->skip(2)->get());
 
-        dump(DB::table('posts')->get());
+        // dump(DB::table('posts')->get());
 
         // DB::table('posts')->insert(['name' => 'home', 'description' => 'about home', 'author' => 'max']);
 
         // $post_id = DB::table('posts')->insertGetId(['name' => 'home', 'description' => 'about home', 'author' => 'max']);
 
-        $result = DB::table('posts')->where('id', 7)->update(['description' => 'I m go home']);
+        // $result = DB::table('posts')->where('id', 7)->update(['description' => 'I m go home']);
+
+        $result = DB::table('posts')->where('id', 1)->delete();
 
         dump(DB::table('posts')->get());
         echo $result;
