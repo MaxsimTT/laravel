@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+
+    protected $table = 'posts';
+    protected $primeryKey = 'id';
+    public $incrementing = FALSE;
+    public $timestamps = FALSE;
 }
