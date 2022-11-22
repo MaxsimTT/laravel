@@ -48,19 +48,48 @@ class PostController extends Controller
         // $item = Post::findOrFail(8);
         // echo $item->id;
 
-        $post = new Post;
+        // $post = new Post;
 
-        $post->category_post_id = 5;
-        $post->name = 'Test save';
-        $post->description = 'Suspendisse sed urna id nulla accumsan dignissim sed et nulla. Praesent ullamcorper convallis ipsum quis pulvinar. Suspendisse pretium risus a cursus pharetra. Nullam eu congue neque, non placerat arcu. Aliquam erat volutpat. Sed at nunc viverra, fermentum elit fringilla, ullamcorper tortor. Vivamus elementum libero id ante pretium, non feugiat augue varius. Quisque elementum, lorem a placerat lobortis, urna dui tincidunt felis, eu volutpat nisi mi in lectus. Suspendisse ornare condimentum ligula, vitae scelerisque justo volutpat et. Curabitur scelerisque tellus ut quam consequat imperdiet. Proin ornare elit leo. Integer elementum est nibh, ut faucibus neque ornare eget.';
-        $post->author_id = 9;
+        // $post->category_post_id = 5;
+        // $post->name = 'Test save';
+        // $post->description = 'Suspendisse sed urna id nulla accumsan dignissim sed et nulla. Praesent ullamcorper convallis ipsum quis pulvinar. Suspendisse pretium risus a cursus pharetra. Nullam eu congue neque, non placerat arcu. Aliquam erat volutpat. Sed at nunc viverra, fermentum elit fringilla, ullamcorper tortor. Vivamus elementum libero id ante pretium, non feugiat augue varius. Quisque elementum, lorem a placerat lobortis, urna dui tincidunt felis, eu volutpat nisi mi in lectus. Suspendisse ornare condimentum ligula, vitae scelerisque justo volutpat et. Curabitur scelerisque tellus ut quam consequat imperdiet. Proin ornare elit leo. Integer elementum est nibh, ut faucibus neque ornare eget.';
+        // $post->author_id = 9;
 
-        $post->save();
+        // $post->save();
+
+        // $items = Post::firstOrCreate([
+        //     'name' => 'new post about phone, record two',
+        //     'description' => 'new dscription post about phone',
+        //     'author_id' => 5,
+        // ]);
+        // dump($items);
+
+        // $post = Post::find(20);
+        // $post->delete();
+
+        // Post::destroy(21);
+
+        // $post = Post::find(8);
+        // $post->delete();
+
+        // dump($post);
+        $posts = Post::withTrashed()->get();
+
+        // dump($post);
+
+        // $items = Post::all();
+
+        foreach ($posts as $post) {
+            if ($post->trashed()) {
+                $post->restore();
+            }
+           // dump($item);
+        }
 
         $items = Post::all();
 
         foreach ($items as $item) {
-            dump($item);
+           dump($item);
         }
 
 
